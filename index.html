@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+
+    <link rel="stylesheet" href="./node_modules/leaflet/dist/leaflet.css" />
+    <script src="./node_modules/leaflet/dist/leaflet.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+
+    <title>Frontend Mentor | IP Address Tracker</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- IP Address Tracker
+
+  Search for any IP address or domain
+
+  IP Address
+  Location
+  Timezone
+    UTC <!-- add offset value dynamically using the API
+  ISP
+   -->
+
+    <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Nakul Gopal</a>.
+  </div> -->
+
+    <div id="header">
+      <h2 id="title">IP Address Tracker</h2>
+      <div id="search">
+        <input
+          type="text"
+          name=""
+          id="IP"
+          placeholder="Search for any IP address or Domain"
+        />
+        <button id="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
+            <path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" />
+          </svg>
+        </button>
+      </div>
+
+      <div id="display-board">
+        <div id="item-1" class="display-items">
+          <p>IP Address</p>
+          <h2>Getting info</h2>
+        </div>
+        <div id="item-2" class="display-items">
+          <p>Location</p>
+          <h2>Getting info</h2>
+        </div>
+        <div id="item-3" class="display-items">
+          <p>Timezone</p>
+          <h2>Getting info</h2>
+        </div>
+        <div id="item-4" class="display-items">
+          <p>ISP</p>
+          <h2>Getting info</h2>
+        </div>
+      </div>
+    </div>
+
+    <div id="mapid"></div>
+    <script>
+      document.getElementById("icon").addEventListener("click", () => {
+        console.log("button was clicked");
+      });
+    </script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
