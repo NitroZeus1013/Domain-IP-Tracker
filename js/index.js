@@ -22,6 +22,13 @@ const addMarker = (lat,long,location)=>{
     L.marker([lat,long]).addTo(mymap).bindPopup(`${location}`).openPopup();
     mymap.panTo([lat,long]);
 }
+//get info from search bar 
+const ipOrDomain = document.querySelector("#IP").value;
+// let domain = ipOrDomain.includes("www")?ipOrDomain:"";
+// let ip = ipOrDomain.includes("www")?"":ipOrDomain;
+
+
+
 //let input_ip = document.getElementById("IP").value;
 const updateInfo = (ip,isp,timezone,location) =>{
     let info = document.querySelectorAll("#display-board h2")
@@ -31,10 +38,18 @@ const updateInfo = (ip,isp,timezone,location) =>{
     info[3].textContent=isp;
 }
 
+
+
+
+ // let ipOrDomain = document.querySelector("#IP").value;
+// let domain = ipOrDomain.includes("www")?ipOrDomain:"";
 const getData = () => {
+ let ipOrDomain = document.querySelector("#IP").value;
+// let ipOrDomain = "www.google.com"
+   
   axios
     .get(
-      `https://geo.ipify.org/api/v1?apiKey=at_lVbVwkKuXaK7E3Pw0npBcd1OJ5kOE&ipAddress=`
+      `https://geo.ipify.org/api/v1`,{params:{domain:`${ipOrDomain}`,apiKey:"at_lVbVwkKuXaK7E3Pw0npBcd1OJ5kOE"}}
     )
     .then((response) => {
       let lat = response.data.location.lat;
@@ -50,7 +65,16 @@ const getData = () => {
     .catch((err) => {
       console.log(err);
     });
+//  document.querySelector("#IP").value="";
+
 };
 
-updateInfo();
+
+// function printName(e){
+//   return ()=>{
+//     console.log(e);
+//   }
+// }
+// let name1 = "nakul"
+
 document.getElementById("icon").addEventListener('click',getData);
